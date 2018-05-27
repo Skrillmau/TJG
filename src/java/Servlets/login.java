@@ -5,8 +5,12 @@
  */
 package Servlets;
 
+import Modelo.Empleado;
+import SQL.Conexion;
+import SQL.EmpleadoC;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,18 +34,24 @@ public class login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet login</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String user = request.getParameter("user");
+        String pass = request.getParameter("pass");
+      
+         Conexion con = new Conexion();
+        EmpleadoC empleado = new EmpleadoC(con);
+        Empleado emp = empleado.auth(user, pass);
+        RequestDispatcher rd;
+
+        if (emp != null) {
+           
+            request.setAttribute("Empleado", emp);
+            rd = request.getRequestDispatcher("/homeEmpleado.jsp");
+
+        } else {
+            request.setAttribute("Mensaje", "Error");
+
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

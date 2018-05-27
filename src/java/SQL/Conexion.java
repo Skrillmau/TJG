@@ -13,7 +13,8 @@ public class Conexion {
     public Conexion(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            conectar = DriverManager.getConnection("jdbc:mysql://localhost:3306/thejoynergroup","root","Yosoyjcpa16.");
+            conectar = DriverManager.getConnection("jdbc:mysql://localhost:3306/thejourneygroup?autoReconnect=true&useSSL=false","root","Yosoyjcpa16.");
+            System.out.print("aklsjdakdla");
         }catch(Exception e){
             System.err.println(e.getMessage());
         }
