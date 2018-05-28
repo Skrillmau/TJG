@@ -5,12 +5,13 @@
  */
 package Servlets;
 
-import Modelo.Cliente;
+import Modelo.Producto;
 import SQL.Conexion;
-import SQL.ClienteC;
+import SQL.ProductoC;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author juanc
  */
-public class loginCliente extends HttpServlet {
+public class Catalogo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,9 +35,30 @@ public class loginCliente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.setContentType("text/html;charset=UTF-8");
+        String URL = request.getServletPath();
+        if (URL.equals("/Catalogo")) {
+            Conexion con = new Conexion();
+            Connection cn = con.conectar();
+            ProductoC productoc = new ProductoC(cn);
+            ArrayList<Producto> listap = productoc.getListaP();
+            RequestDispatcher rd;
+            request.setAttribute("listaproductos", listap);
+            rd = request.getRequestDispatcher("/Catalogo.jsp");
+            rd.forward(request, response);
+        } else if (URL.equals("/Catalogoe")) {
+            Conexion con = new Conexion();
+            Connection cn = con.conectar();
+            ProductoC productoc = new ProductoC(cn);
+            ArrayList<Producto> listap = productoc.getListaP();
+            RequestDispatcher rd;
+            request.setAttribute("listaproductos", listap);
+            rd = request.getRequestDispatcher("/CatalogoE.jsp");
+            rd.forward(request, response);
+            
         }
-    
+
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
