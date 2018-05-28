@@ -5,13 +5,8 @@
  */
 package Servlets;
 
-import Modelo.Empleado;
-import SQL.Conexion;
-import SQL.EmpleadoC;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author juanc
  */
-public class login extends HttpServlet {
+public class loginCliente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,29 +30,15 @@ public class login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
-        Conexion con = new Conexion();
-        Connection cn = con.conectar();
-        EmpleadoC emp = new EmpleadoC(cn);
-        Empleado emple = new Empleado();
-        emple = emp.auth(user, pass);
-        RequestDispatcher rd;
-        if(emple!=null){
-            request.setAttribute("empleado", emple);
-                rd = request.getRequestDispatcher("/home.jsp");
-               rd.forward(request, response);
-        }
-
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet loginCliente</title>");
+            out.println("<title>Servlet loginCliente</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>" + pass + "Servlet loginCliente at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet loginCliente at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -89,7 +70,6 @@ public class login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         processRequest(request, response);
     }
 

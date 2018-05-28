@@ -1,6 +1,7 @@
 package SQL;
 
 import Modelo.Empleado;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,24 +12,27 @@ import java.sql.SQLException;
  */
 public class EmpleadoC {
 
-    private Conexion con;
+    private Connection con;
 
-    public EmpleadoC(Conexion con) {
+    public EmpleadoC(Connection con) {
         this.con = con;
+        System.out.println("todo bien gonorrea 33");
+
 
     }
 
     public Empleado auth(String usuario, String password) {
 
         try {
-
+            System.out.println("todo bien gonorrea 23");
             String consulta = "SELECT * FROM usuario_empleado u INNER JOIN empleado e ON e.Cedula_Empleado=u.Cedula_Empleado WHERE u.Usuario = ? AND u.Password = ? ";
-            System.out.print(consulta);
-            PreparedStatement pst = con.getConexion().prepareStatement(consulta);
+       
+            PreparedStatement pst = con.prepareStatement(consulta);
             pst.setString(1, usuario);
             pst.setString(2, password);
             ResultSet rs = pst.executeQuery();
             Empleado emp = new Empleado();
+            
             if (rs.absolute(1)) {
                 
                 emp.setCedula(rs.getInt("u.Cedula_Empleado"));
@@ -42,14 +46,15 @@ public class EmpleadoC {
                 emp.setFp(rs.getString("e.Fondo_Pension"));
                 emp.setCj(rs.getString("e.Caja_Compensacion"));
                 emp.setIdepartamento(rs.getInt("e.ID_Departamento"));
-                System.out.print("todo bien gonorrea");
+                System.out.println("todo bien gonorrea2.0");
+                return emp;
             }
 
         } catch (SQLException e) {
             System.out.println(e);
         }
 
-        return emp;
+        return null;
     }
 
 }
