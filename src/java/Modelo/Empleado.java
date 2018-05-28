@@ -16,6 +16,7 @@ public class Empleado {
     private String Rh;
     private String Cj;
     private String Fp;
+    private int duracion;
     private int Idepartamento;
     
     public Empleado(){
@@ -108,6 +109,14 @@ public class Empleado {
 
     public void setIdepartamento(int Idepartamento) {
         this.Idepartamento = Idepartamento;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
     }
     
 }
