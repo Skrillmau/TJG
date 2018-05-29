@@ -63,7 +63,11 @@ public class Carrito extends HttpServlet {
     private void eliminar(HttpServletRequest request, HttpServletResponse response) throws IOException {
         session = request.getSession(false);
         Lista = (ArrayList<Producto>) session.getAttribute("carritocompras");
-        Lista.remove(Integer.parseInt(request.getParameter("productoid")));
+        for (int a = 0; a < Lista.size(); a++) {
+            if (Lista.get(a).getIdproducto() == Integer.parseInt(request.getParameter("productoid"))) {
+                Lista.remove(a);
+            }
+        }
         session.setAttribute("carritocompras", Lista);
         response.sendRedirect("Carrito.jsp");
     }
@@ -100,7 +104,7 @@ public class Carrito extends HttpServlet {
         Connection con = conn.conectar();
         TiposC lista = new TiposC(con);
         ArrayList<Tipos> metodos = lista.traerMetodoPago();
-        List <Tipos> metodosen = lista.traerMetodoEntrega();
+        List<Tipos> metodosen = lista.traerMetodoEntrega();
         // List <Empleado> empleado = pd.getVendedor();
 
         // ArrayList <Producto> comprados = new ArrayList(); 

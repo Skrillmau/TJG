@@ -42,6 +42,11 @@ public class Catalogo extends HttpServlet {
             Connection cn = con.conectar();
             ProductoC productoc = new ProductoC(cn);
             ArrayList<Producto> listap = productoc.getListaP();
+            for (int a = 0; a < listap.size(); a++) {
+                if (listap.get(a).getInventario() == 0) {
+                    listap.remove(listap.get(a));
+                }
+            }
             RequestDispatcher rd;
             request.setAttribute("listaproductos", listap);
             rd = request.getRequestDispatcher("/Catalogo.jsp");
@@ -52,10 +57,15 @@ public class Catalogo extends HttpServlet {
             ProductoC productoc = new ProductoC(cn);
             ArrayList<Producto> listap = productoc.getListaP();
             RequestDispatcher rd;
+            for (int a = 0; a < listap.size(); a++) {
+                if (listap.get(a).getInventario() == 0) {
+                    listap.remove(listap.get(a));
+                }
+            }
             request.setAttribute("listaproductos", listap);
             rd = request.getRequestDispatcher("/CatalogoE.jsp");
             rd.forward(request, response);
-            
+
         }
 
     }

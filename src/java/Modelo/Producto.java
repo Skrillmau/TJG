@@ -6,6 +6,7 @@ public class Producto {
     private int Idproveedor;
     private int Inventario;
     private double Precio;
+    private String Path;
     
     public Producto(){
         
@@ -49,6 +50,14 @@ public class Producto {
 
     public void setPrecio(double Precio) {
         this.Precio = Precio;
+    }
+
+    public String getPath() {
+        return Path;
+    }
+
+    public void setPath(String Path) {
+        this.Path = Path;
     }
     
 }

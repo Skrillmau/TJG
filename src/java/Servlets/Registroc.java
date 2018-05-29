@@ -6,20 +6,33 @@
 package Servlets;
 
 import Modelo.Cliente;
+import Modelo.Departamento;
 import Modelo.Empleado;
 import Modelo.Producto;
 import SQL.ClienteC;
 import SQL.Conexion;
+import SQL.DepartamentoC;
 import SQL.EmpleadoC;
 import SQL.ProductoC;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+@WebServlet("/upload")
+@MultipartConfig
 
 /**
  *
@@ -95,25 +108,21 @@ public class Registroc extends HttpServlet {
             empleado.setPassword(pass);
             empleado.setTipo(tipo);
             empleadoc.insert(empleado);
-        }
-        else if(URL.equals("/Registrop")){
-            String id = request.getParameter("idproducto");
+        } else if (URL.equals("/Registrodep")) {
+
             String nombre = request.getParameter("nombre");
-            String inventario = request.getParameter("inventario");
-            String precio = request.getParameter("precio");
-            String idproveedor = request.getParameter("idproveedor");
+            String descripcion = request.getParameter("descripcion");
             Conexion con = new Conexion();
             Connection cn = con.conectar();
-            ProductoC productoc = new ProductoC(cn);
-            Producto producto = new Producto();
-            producto.setIdproducto(Integer.parseInt(id));
-            producto.setNombreproducto(nombre);
-            producto.setInventario(Integer.parseInt(inventario));
-            producto.setPrecio(Integer.parseInt(precio));
-            producto.setIdproveedor(Integer.parseInt(idproveedor));
-            productoc.insert(producto);
-
-         }
+            DepartamentoC departamentoc = new DepartamentoC(cn);
+            Departamento departamento = new Departamento();
+            departamento.setNombre(nombre);
+            departamento.setDescribe(descripcion);
+            departamentoc.insert(departamento);
+            RequestDispatcher rd;
+            rd = request.getRequestDispatcher("/home.jsp");
+            rd.forward(request, response);
+        }
         RequestDispatcher rd;
     }
 
@@ -144,6 +153,39 @@ public class Registroc extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        String URL = request.getServletPath();
+
+        if (URL.equals("/Registrop")) {
+            String id = request.getParameter("idproducto");
+            String nombre = request.getParameter("nombre");
+            String inventario = request.getParameter("inventario");
+            String precio = request.getParameter("precio");
+            String idproveedor = request.getParameter("idproveedor");
+            Part filePart = request.getPart("imagenp");
+            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+            String path = "C:\\Users\\mate_\\Documents\\GitHub\\TheJourneyGroup\\web\\Productos";
+            File uploads = new File(path);
+            uploads.mkdirs();
+            File file = File.createTempFile("cod" + "1203" + "XX", "XX" + fileName, uploads);
+            try (InputStream input = filePart.getInputStream()) {
+                Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            }
+            
+            String[] Parts = (file.getPath().split("XX"));
+            String ruta = ("cod1203XX" + Parts[1] + "XX" + fileName);
+            Conexion con = new Conexion();
+            Connection cn = con.conectar();
+            ProductoC productoc = new ProductoC(cn);
+            Producto producto = new Producto();
+            producto.setPath(ruta);
+            producto.setIdproducto(Integer.parseInt(id));
+            producto.setNombreproducto(nombre);
+            producto.setInventario(Integer.parseInt(inventario));
+            producto.setPrecio(Integer.parseInt(precio));
+            producto.setIdproveedor(Integer.parseInt(idproveedor));
+            productoc.insert(producto);
+
+        }
     }
 
     /**

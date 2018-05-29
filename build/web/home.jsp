@@ -36,12 +36,9 @@
             <input type="submit" class="btn btn-danger" id="boton1" value="Catalogo" class="btn"/>
 
         </form>
-       
+        <form action="CrearDepartamento" method="post">
+            <input type="submit" class="btn btn-danger" id="boton1" value="Crear Departamento" class="btn"/>
 
-
-
-
-
-
+        </form>
     </body>
 </html>

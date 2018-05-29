@@ -33,12 +33,10 @@
                         <td><%=Lista.get(i).getPrecio()%></td>
                     <form action = "Compra" method="post">  
                         <td><input type="text" class="campos" name="cantidad<%=Lista.get(i).getIdproducto()%>" placeholder="insertecantidad<%=i%>"/></td>
-                        <td><a href="eliminarproducto?productoid=0"> ELIMINAR </a></td>
+                        <td><a href="eliminarproducto?productoid=<%=Lista.get(i).getIdproducto()%>"> ELIMINAR </a></td>
                         </tr>
 
                         <%} %>
-
-
                         <%}%>
                 </table>
 
@@ -70,12 +68,7 @@
         <% ArrayList<Producto> Lista= (ArrayList<Producto>)sesion.getAttribute("carritocompras"); %>
            <%  request.getSession().setAttribute("comprados", Lista);%>
             <input type="submit" class="btn btn-danger" id="boton1" value="Comprar" class="btn"/>
+            <td><a href="homecliente.jsp"> Volver </a></td>
         </form>
-
-
-
-
-
-
     </body>
 </html>

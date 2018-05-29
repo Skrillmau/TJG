@@ -5,12 +5,13 @@
  */
 package Servlets;
 
-import Modelo.Cliente;
+import Modelo.Tipos;
 import SQL.Conexion;
-import SQL.ClienteC;
+import SQL.TiposC;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,9 +20,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author juanc
+ * @author mate_
  */
-public class loginCliente extends HttpServlet {
+public class CrearDepartamento extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,9 +35,11 @@ public class loginCliente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        }
-    
+        response.setContentType("text/html;charset=UTF-8");
+        RequestDispatcher rd;
+        rd = request.getRequestDispatcher("/CrearDepartamento.jsp");
+        rd.forward(request, response);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

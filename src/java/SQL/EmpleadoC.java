@@ -16,14 +16,12 @@ public class EmpleadoC {
 
     public EmpleadoC(Connection con) {
         this.con = con;
-        System.out.println("todo bien gonorrea 33");
 
     }
 
     public Empleado auth(String usuario, String password) {
 
         try {
-            System.out.println("todo bien gonorrea 23");
             String consulta = "SELECT * FROM usuario_empleado u INNER JOIN empleado e ON e.Cedula_Empleado=u.Cedula_Empleado WHERE u.Usuario = ? AND u.Password = ? ";
 
             PreparedStatement pst = con.prepareStatement(consulta);
@@ -33,7 +31,6 @@ public class EmpleadoC {
             Empleado emp = new Empleado();
 
             if (rs.absolute(1)) {
-
                 emp.setCedula(rs.getInt("u.Cedula_Empleado"));
                 emp.setUsuario(rs.getString("u.Usuario"));
                 emp.setPassword(rs.getString("u.Password"));

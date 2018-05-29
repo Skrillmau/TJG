@@ -36,6 +36,14 @@
         <servlet-name>Compra</servlet-name>
         <servlet-class>Servlets.Compra</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CrearDepartamento</servlet-name>
+        <servlet-class>Servlets.CrearDepartamento</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Log</servlet-name>
+        <servlet-class>Servlets.Log</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginCliente</servlet-name>
         <url-pattern>/loginCliente</url-pattern>
@@ -50,6 +58,7 @@
         <url-pattern>/Registroc</url-pattern>
         <url-pattern>/Registroe</url-pattern>
         <url-pattern>/Registrop</url-pattern>
+        <url-pattern>/Registrodep</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Catalogo</servlet-name>
@@ -71,10 +80,19 @@
     <servlet-mapping>
         <servlet-name>Carrito</servlet-name>
         <url-pattern>/Carrito</url-pattern>
+        <url-pattern>/eliminarproducto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Compra</servlet-name>
         <url-pattern>/Compra</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearDepartamento</servlet-name>
+        <url-pattern>/CrearDepartamento</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Log</servlet-name>
+        <url-pattern>/Log</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

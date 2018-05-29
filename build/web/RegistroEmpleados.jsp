@@ -26,7 +26,7 @@
                 <input type="text" class="campos" name="rh" placeholder="RH"/>
                 <input type="text" class="campos" name="caja" placeholder="Caja"/>
                 <input type="text" class="campos" name="fondo" placeholder="Fondo de pension"/>
-                
+
                 <c:forEach items="${departamentos}" var="departamento" varStatus="status">
                     <select name="iddeppartamentos">
                         <option value="${departamento.idtipo}"> ${departamento.nombre}</option>
@@ -35,9 +35,9 @@
 
                 <div class="btn-group" role="group" aria-label="...">
                     <input type="submit" class="btn btn-danger" id="boton1" value="Log in" class="btn"/>
-                    <a href="/check.html" class="link">¿Olvidó su contraseña?</a>
-                    <a href="/Panificadorapp/registro.jsp" class="link">Registrarse <a/>
-                        </form>
-                </div>
-                </body>
-                </html>
+                    <a href="home.jsp"> Volver </a>
+
+            </form>
+        </div>
+    </body>
+</html>

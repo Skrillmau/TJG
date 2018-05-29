@@ -15,8 +15,12 @@
     <body>
 
         <c:forEach items="${listaproductos}" var="producto" varStatus="status">
+            <div class="producto_img">
+                <img src="Productos/${producto.path}"/>
+            </div>
             <p>${producto.nombreproducto}</p>  
             <p>${producto.precio}</p>
+            <p>${producto.inventario}</p>
             <p>${producto.idproducto}</p>
             <form action="Eliminar?id=${producto.idproducto}" method="post">
                 <input type="submit" class="btn btn-danger" id="boton1" value="Eliminar" class="btn"/>
@@ -24,6 +28,6 @@
             </form>
 
         </c:forEach>
-            <a href="home.jsp"> Volver </a>
+        <a href="home.jsp"> Volver </a>
     </body>
 </html>
