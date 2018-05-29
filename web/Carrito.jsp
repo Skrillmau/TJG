@@ -48,8 +48,8 @@
                 <div class="col-lg-12 text-center" style="color: whitesmoke;">
                     <h1 class="mt-5">Carrito de Compras</h1>
                 </div>
-                <form action = "Compra" method="post">
-                    <div id="formUsuario1">
+                <div id="formUsuario1">
+                    <form action = "Compra" method="post">
                         <%  sesion = request.getSession(false);
                             if (sesion.getAttribute("carritocompras") != null) {%>
                         <table class="table table-hover"> 
@@ -89,19 +89,19 @@
                         <% ArrayList<Producto> Lista = (ArrayList<Producto>) sesion.getAttribute("carritocompras"); %>
                         <%  request.getSession().setAttribute("comprados", Lista);%>
                         <br></br><input type="submit" class="btn btn-success" value="Comprar" /><br></br>
-                </form>
-            </div>
-            <br>
-            <div id="botones-Menu">
-                <form action="Catalogo" method="post">
-                    <input type="submit" class="btn-Menu" value="Regresar" />
-                </form><br>
-                <a href="homecliente.jsp">
-                    <input type="submit" class="btn-Menu" value="Home">
-                </a>
+                    </form>
+                </div>
+                <br>
+                <div id="botones-Menu">
+                    <form action="Catalogo" method="post">
+                        <input type="submit" class="btn-Menu" value="Regresar" />
+                    </form><br>
+                    <a href="homecliente.jsp">
+                        <input type="submit" class="btn-Menu" value="Home">
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 
 </html>

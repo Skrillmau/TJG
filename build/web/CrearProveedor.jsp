@@ -3,15 +3,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>Nuevo empleado</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Css/background.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+    <head>
+        <title>Nuevo proveedor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Css/background.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
 
     <body>
         <nav class="navbar navbar-default fixed-top">
@@ -67,23 +67,21 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h1 style="color: whitesmoke;">
-                        Registro Departamento:
+                        Registro proveedor:
                     </h1>
-                    <form id="formUsuario">
-                        <h3>
-                            <b>
-                                <br>Porfavor Ingrese los Datos</b>
-                        </h3>
-                        <form action = "Registropro" method="post" class="form">
-                            <input type="text" name="idproveedor" placeholder="Id del proveedor"/>
-                            <input type="text" name="razon" placeholder="Razon social"/>
-                            <input type="text" name="direccion" placeholder="Direccion"/>
-                            <input type="text" name="correo" placeholder="Correo"/>
-                            <input type="text" name="telefono" placeholder="Telefono"/>
-                            <input type="text" name="certi" placeholder="Certificacion Bancaria"/>
-                            <input type="text" name="rut" placeholder="RUT"/>
-                            <br></br><input type="submit" class="btn btn-success" value="Registrar proveedor" />
-                        </form>
+                    <h3>
+                        <b>
+                            <br>Porfavor Ingrese los Datos</b>
+                    </h3>
+                    <form action = "Registropro" method="post" class="form" id="formUsuario">
+                        <input type="text" name="idproveedor" placeholder="Id del proveedor"/>
+                        <input type="text" name="razon" placeholder="Razon social"/>
+                        <input type="text" name="direccion" placeholder="Direccion"/>
+                        <input type="text" name="correo" placeholder="Correo"/>
+                        <input type="text" name="telefono" placeholder="Telefono"/>
+                        <input type="text" name="certi" placeholder="Certificacion Bancaria"/>
+                        <input type="text" name="rut" placeholder="RUT"/>
+                        <br></br><input type="submit" class="btn btn-success" value="Registrar proveedor" />
                     </form>
                     <div id="botones-Menu">
                         <a href="home.jsp">
@@ -92,6 +90,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </body>
 
 </html>

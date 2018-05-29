@@ -42,8 +42,8 @@
             <div class="row">
                 <div class="col-lg-12 text-center" style="color: whitesmoke;">
                     <h1 class="mt-5">Bienvenido</h1>
-                    <h2> ${cliente.nombres} </h2>
-                    <h2> ${cliente.usuario} </h2><br>
+                    <h2><b>Nombre</b> ${cliente.nombres} </h2>
+                    <h2><b>Usuario</b> ${cliente.usuario} </h2><br>
                     <form action="Catalogo" method="post">
                         <input type="submit" class="btn btn-success" value="Carrito" />
                     </form><br>

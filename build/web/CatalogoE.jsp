@@ -75,12 +75,10 @@
                         <p>${producto.nombreproducto}</p>  
                         <p>${producto.precio}</p>
                         <p>${producto.inventario}</p>
-                        <p>${producto.idproducto}</p>
+                        <p>${producto.idproducto}</p>                    
                         <form action="Eliminar?id=${producto.idproducto}" method="post">
-                            <input type="submit" class="btn btn-danger" id="boton1" value="Eliminar" class="btn"/>
-
+                            <input type="submit" class="btn btn-danger" value="Eliminar" />
                         </form>
-
                     </c:forEach>
                 </table>
             </div>

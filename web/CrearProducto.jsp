@@ -78,22 +78,22 @@
                             <b>
                                 <br>Porfavor Ingrese los Datos del Producto</b>
                         </h3>
-                            <input type="text" name="idproducto" placeholder="ID producto"/>
-                            <input type="text" name="nombre" placeholder="Nombre del producto"/>
-                            <input type="number" name="inventario" placeholder="Inventario"/>
-                            <input type="number" name="precio"placeholder="Precio" />
+                        <input type="text" name="idproducto" placeholder="ID producto"/>
+                        <input type="text" name="nombre" placeholder="Nombre del producto"/>
+                        <input type="number" name="inventario" placeholder="Inventario"/>
+                        <input type="number" name="precio"placeholder="Precio" />
 
-                            <c:forEach items="${proveedores}" var="proveedor" varStatus="status">
-                                <select name="idproveedor">
-                                    <option value="${proveedor.idtipo}"> ${proveedor.nombre}</option>
+                        <c:forEach items="${proveedores}" var="proveedor" varStatus="status">
+                            <select name="idproveedor">
+                                <option value="${proveedor.idtipo}"> ${proveedor.nombre}</option>
 
 
-                                </select>
-                            </c:forEach>
-                            <input type="file" name="imagenp">
+                            </select>
+                        </c:forEach>
+                        <input type="file" name="imagenp">
 
-                            <input type="submit" class="btn btn-success" value="Crear Producto" />
-                        </form>
+                        <input type="submit" class="btn btn-success" value="Crear Producto" />
+                    </form>
                     <div id="botones-Menu">
                         <a href="home.jsp">
                             <br><input type="submit" class="btn-Menu" value="Home">
@@ -103,6 +103,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

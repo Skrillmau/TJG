@@ -49,23 +49,22 @@
                     <h1 style="color: whitesmoke;">
                         Registro clientes:
                     </h1>
-                    <form id="formUsuario2">
-                        <h3>
-                            <b>
-                                Porfavor Ingrese sus Datos
-                        </h3>
-                        <form action = "Registroc" method="post" class="form">
-                            <p><input type="text" name="user" placeholder="Usuario"/></p>
-                            <p><input type="password" name="pass" placeholder="Contraseña"/></p>
-                            <p><input type="text" name="cedula" placeholder="Cedula"/></p>
-                            <p><input type="text" name="nombres" placeholder="Nombres"/></p>
-                            <p><input type="text" name="correo" placeholder="Correo"/></p>
-                            <p><input type="text" name="telefono" placeholder="Telefono"/></p>
-                            <p><input type="text" name="direccion" placeholder="Direccion"/></p>
-                            <p><input type="text" name="ciudad" placeholder="Ciudad"/></p>
-                            <p><input type="text" name="mediocontatco" placeholder="Medio de Contacto"/></p>
-                            <p><input type="submit" class="btn btn-success" value="Registrar" />
-                        </form>
+                    <h3 style="color: whitesmoke;">
+                        <b>
+                            Porfavor Ingrese sus Datos
+                    </h3>
+                    <form action = "Registroc" method="post" class="form" id="formUsuario2">
+                        <p><input type="text" name="user" placeholder="Usuario"/></p>
+                        <p><input type="password" name="pass" placeholder="Contraseña"/></p>
+                        <p><input type="text" name="cedula" placeholder="Cedula"/></p>
+                        <p><input type="text" name="nombres" placeholder="Nombres"/></p>
+                        <p><input type="text" name="correo" placeholder="Correo"/></p>
+                        <p><input type="text" name="telefono" placeholder="Telefono"/></p>
+                        <p><input type="text" name="direccion" placeholder="Direccion"/></p>
+                        <p><input type="text" name="ciudad" placeholder="Ciudad"/></p>
+                        <p><input type="text" name="mediocontatco" placeholder="Medio de Contacto"/></p>
+                        <p><input type="submit" class="btn btn-success" value="Registrar" />
+
                     </form>
                 </div>
                 <div id="botones-Menu">
