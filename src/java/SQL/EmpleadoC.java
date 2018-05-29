@@ -16,25 +16,21 @@ public class EmpleadoC {
 
     public EmpleadoC(Connection con) {
         this.con = con;
-        System.out.println("todo bien gonorrea 33");
-
 
     }
 
     public Empleado auth(String usuario, String password) {
 
         try {
-            System.out.println("todo bien gonorrea 23");
             String consulta = "SELECT * FROM usuario_empleado u INNER JOIN empleado e ON e.Cedula_Empleado=u.Cedula_Empleado WHERE u.Usuario = ? AND u.Password = ? ";
-       
+
             PreparedStatement pst = con.prepareStatement(consulta);
             pst.setString(1, usuario);
             pst.setString(2, password);
             ResultSet rs = pst.executeQuery();
             Empleado emp = new Empleado();
-            
+
             if (rs.absolute(1)) {
-                
                 emp.setCedula(rs.getInt("u.Cedula_Empleado"));
                 emp.setUsuario(rs.getString("u.Usuario"));
                 emp.setPassword(rs.getString("u.Password"));
@@ -55,6 +51,43 @@ public class EmpleadoC {
         }
 
         return null;
+    }
+
+    public boolean insert(Empleado empleado) {
+        boolean creado = false;
+        try {
+            String consulta = "insert into empleado (Cedula_Empleado,Nombres,Fecha_Ingreso,Duracion_Contrato,EPS,ARL,RH,Caja_Compensacion,Fondo_Pension,ID_Departamento) values"
+                    + "(?,?,(SELECT CURDATE()),?,?,?,?,?,?,?)";
+            String consulta2 = "insert into usuario_empleado(Cedula_Empleado,Usuario,Password,Tipo) values (?,?,?,?)";
+            String querys = "Insert into cargo_empleado (ID_Cargo,Cedula_Empleado) values (?,?)";
+            PreparedStatement pst = con.prepareStatement(consulta);
+            PreparedStatement pstv = con.prepareStatement(consulta2);
+            PreparedStatement pque= con.prepareStatement(querys);
+            pst.setString(1, empleado.getCedula() + "");
+            pst.setString(2, empleado.getNombres());
+            pst.setString(3, empleado.getDuracion() + "");
+            pst.setString(4, empleado.getEps());
+            pst.setString(5, empleado.getArl());
+            pst.setString(6, empleado.getRh());
+            pst.setString(7, empleado.getCj());
+            pst.setString(8, empleado.getFp());
+            pst.setString(9, empleado.getIdepartamento()+"");
+            pstv.setString(1, empleado.getCedula() + "");
+            pstv.setString(2, empleado.getUsuario());
+            pstv.setString(3, empleado.getPassword());
+            pstv.setString(4, empleado.getTipo());
+            pque.setString(1, empleado.getIdcargo()+"");
+            pque.setString(2, empleado.getCedula()+"");
+            pst.executeUpdate();
+            pstv.executeUpdate();
+            pque.executeUpdate();
+            creado = true;
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return creado;
+
     }
 
 }

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : homeEmpleado
-    Created on : May 27, 2018, 5:39:53 PM
-    Author     : juanc
+    Document   : CrearProveedor
+    Created on : 28/05/2018, 11:06:58 PM
+    Author     : mate_
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1></h1>
+        <h1>Hello World!</h1>
     </body>
 </html>
