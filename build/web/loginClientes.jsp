@@ -66,13 +66,12 @@
                         </p>
                         <br>
                     </form>
-                    <br>
-                    <div id="botones-Menu">
-                        <a href="home.html">
-                            <button class="btn-Menu">home</button>
-                        </a>
-                    </div>
-                    <br>
+
+                </div>
+                <div id="botones-Menu">
+                    <a href="index.jsp">
+                        <br><input type="submit" class="btn-Menu" value="Home">
+                    </a>
                 </div>
             </div>
         </div>

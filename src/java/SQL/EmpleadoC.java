@@ -58,7 +58,7 @@ public class EmpleadoC {
         try {
             String consulta = "insert into empleado (Cedula_Empleado,Nombres,Fecha_Ingreso,Duracion_Contrato,EPS,ARL,RH,Caja_Compensacion,Fondo_Pension,ID_Departamento) values"
                     + "(?,?,(SELECT CURDATE()),?,?,?,?,?,?,?)";
-            String consulta2 = "insert into usuario_empleado(Cedula_Empleado,Usuario,Password,Tipo) values (?,?,?,?)";
+            String consulta2 = "insert into usuario_empleado(Cedula_Empleado,Usuario,Password,Tipo) values (?,?,md5(?),?)";
             String querys = "Insert into cargo_empleado (ID_Cargo,Cedula_Empleado) values (?,?)";
             PreparedStatement pst = con.prepareStatement(consulta);
             PreparedStatement pstv = con.prepareStatement(consulta2);

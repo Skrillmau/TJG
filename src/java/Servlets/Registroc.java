@@ -10,12 +10,14 @@ import Modelo.Cliente;
 import Modelo.Departamento;
 import Modelo.Empleado;
 import Modelo.Producto;
+import Modelo.Proveedor;
 import SQL.CargoC;
 import SQL.ClienteC;
 import SQL.Conexion;
 import SQL.DepartamentoC;
 import SQL.EmpleadoC;
 import SQL.ProductoC;
+import SQL.ProveedorC;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -145,6 +147,30 @@ public class Registroc extends HttpServlet {
             RequestDispatcher rd;
             rd = request.getRequestDispatcher("/home.jsp");
             rd.forward(request, response);
+        }else if (URL.equals("/Registropro")) {
+            String idproveedor = request.getParameter("idproveedor");
+            String razon = request.getParameter("razon");
+            String direccion = request.getParameter("direccion");
+            String correo = request.getParameter("correo");
+            String telefono = request.getParameter("telefono");
+            String certificacion = request.getParameter("certi");
+            String rut = request.getParameter("rut");
+
+            Conexion con = new Conexion();
+            Connection cn = con.conectar();
+            ProveedorC proveedorc = new ProveedorC(cn);
+            Proveedor proveedor = new Proveedor();
+            proveedor.setIdproveedor(Integer.parseInt(idproveedor));
+            proveedor.setRazonsocial(razon);
+            proveedor.setDireccion(direccion);
+            proveedor.setTelefono(Integer.parseInt(telefono));
+            proveedor.setCorreo(correo);
+            proveedor.setCerban(Integer.parseInt(certificacion));
+            proveedor.setRut(Integer.parseInt(rut));
+            proveedorc.insert(proveedor);
+            RequestDispatcher rd;
+            rd = request.getRequestDispatcher("/home.jsp");
+            rd.forward(request, response);
         }
         RequestDispatcher rd;
     }
@@ -186,7 +212,7 @@ public class Registroc extends HttpServlet {
             String idproveedor = request.getParameter("idproveedor");
             Part filePart = request.getPart("imagenp");
             String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-            String path = "C:\\Users\\mate_\\Documents\\GitHub\\TheJourneyGroup\\web\\Productos";
+            String path = "C:\\Users\\juanc\\Documents\\NetBeansProjects\\TheJourneyGroup\\web\\Productos";
             File uploads = new File(path);
             uploads.mkdirs();
             File file = File.createTempFile("cod" + "1203" + "XX", "XX" + fileName, uploads);

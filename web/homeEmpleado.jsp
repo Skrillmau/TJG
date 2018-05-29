@@ -26,29 +26,7 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="nav-item active">
-                        <a href="home.jsp">Home</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Crear<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item">
-                                <form action="CrearEmpleado" method="post">
-                                    <input type="submit" class="btn btn-success" value="Crear Empleado" />
-                                </form>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li class="nav-item">
-                                <form action="CrearCargo" method="post">
-                                    <input type="submit" class="btn btn-success" value="Crear Cargo" />
-                                </form>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li class="nav-item">
-                                <form action="CrearDepartamento" method="post">
-                                    <input type="submit" class="btn btn-success" value="Crear Departamento" />
-                                </form>
-                            </li>
-                        </ul>
+                        <a href="homeEmpleado.jsp">Home</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Acciones <span class="caret"></span></a>
@@ -57,10 +35,6 @@
                                 <form action="Catalogoe" method="post">
                                     <br><input type="submit" class="btn btn-success" value="Catalogo" />
                                 </form>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li class="nav-item">
-                                <a href="CrearProveedor.jsp">Registro Proveedor</a>
                             </li>
                         </ul>
                     </li>
@@ -79,9 +53,6 @@
                         <h2><b>RH: </b> ${empleado.rh} </h2>
                         <h2><b>Caja compensacion: </b> ${empleado.cj} </h2>
                         <h2><b>Fondo pension: </b> ${empleado.fp} </h2>
-                    </form>
-                    <form action="Producto" method="post">
-                        <br><input type="submit" class="btn btn-success" value="Productos" />
                     </form>
                 </div>
             </div>

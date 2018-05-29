@@ -28,6 +28,7 @@ h3{
 
 #formUsuario{
     margin: auto;
+    padding: 10px;
     align-content: center;
     width:400px;
     background:#1d8eff;
@@ -37,12 +38,25 @@ h3{
 
 #formUsuario1{
     margin: auto;
+    padding: 10px;
     align-content: center;
     width:600px;
     background:#1d8eff;
     border-radius: 10px;
     text-align: center;
 }
+
+#formUsuario2{
+    margin: auto;
+    padding: 10px;
+    align-content: center;
+    height: auto;
+    width:400px;
+    background:#1d8eff;
+    border-radius: 10px;
+    text-align: center;
+}
+
 
 #botones-Menu{
     margin: auto;

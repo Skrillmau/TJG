@@ -1,9 +1,3 @@
-<%-- 
-    Document   : RegistroEmpleados
-    Created on : May 27, 2018, 11:09:53 PM
-    Author     : juanc
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -44,7 +38,6 @@
                     <option value="Empleado">Empleado</option>
                 </select>
 
-                <div class="btn-group" role="group" aria-label="...">
                     <input type="submit" class="btn btn-danger" id="boton1" value="Log in" class="btn"/>
                     <a href="home.jsp"> Volver </a>
 

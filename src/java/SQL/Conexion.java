@@ -14,7 +14,7 @@ public class Conexion {
 
     public Connection conectar() {
         Connection con = null;
-        String url = "jdbc:mysql://localhost:3306/thejourneygroup?serverTimezone=UTC";
+        String url = "jdbc:mysql://localhost:3306/thejourney3";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "Yosoyjcpa16.");
