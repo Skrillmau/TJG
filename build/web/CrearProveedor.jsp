@@ -69,11 +69,11 @@
                     <h1 style="color: whitesmoke;">
                         Registro proveedor:
                     </h1>
+                    <div id="formUsuario">
                     <h3>
-                        <b>
-                            <br>Porfavor Ingrese los Datos</b>
+                        <b>Porfavor Ingrese los Datos</b>
                     </h3>
-                    <form action = "Registropro" method="post" class="form" id="formUsuario">
+                    <form action = "Registropro" method="post">
                         <input type="text" name="idproveedor" placeholder="Id del proveedor"/>
                         <input type="text" name="razon" placeholder="Razon social"/>
                         <input type="text" name="direccion" placeholder="Direccion"/>
@@ -83,6 +83,7 @@
                         <input type="text" name="rut" placeholder="RUT"/>
                         <br></br><input type="submit" class="btn btn-success" value="Registrar proveedor" />
                     </form>
+                    </div>
                     <div id="botones-Menu">
                         <a href="home.jsp">
                             <br><input type="submit" class="btn-Menu" value="Home">

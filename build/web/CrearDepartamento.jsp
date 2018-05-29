@@ -70,13 +70,12 @@
                         Registro Departamento:
                     </h1>
                     <h3 style="color: whitesmoke;">
-                        <b>
-                            <br>Porfavor Ingrese los Datos</b>
+                        <b>Porfavor Ingrese los Datos</b>
                     </h3>
                     <form action = "Registrodep" method="post" class="form" id="formUsuario">
                         <input type="text" class="campos" name="nombre" placeholder="Nombre del departamento"/>
                         <input type="text" class="campos" name="descripcion" placeholder="Descripcion"/>
-                        <br></br><input type="submit" class="btn btn-success" value="Crear Producto" />
+                        <br></br><input type="submit" class="btn btn-success" value="Crear Departamento" />
                     </form>
                     <div id="botones-Menu">
                         <a href="home.jsp">

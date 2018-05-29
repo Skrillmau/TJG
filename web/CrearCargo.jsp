@@ -71,8 +71,7 @@
                     </h1>
                     <form action = "Registrocar" method="post" id="formUsuario">
                         <h3>
-                            <b>
-                                <br>Porfavor Ingrese los Datos</b>
+                            <b>Porfavor Ingrese los Datos</b>
                         </h3>
                         <input type="text" name="idcargo" placeholder="ID del cargo"/>
                         <input type="text" name="objetivo" placeholder="Objetivo ventas"/>    
@@ -80,7 +79,7 @@
                         <input type="text" name="memorandos" placeholder="Memorandos"/>               
                         <input type="text" name="nombre" placeholder="Nombre del cargo"/>               
 
-                        <input type="submit" class="btn btn-danger" value="Crear Cargo" />
+                        <input type="submit" class="btn btn-success" value="Crear Cargo" />
 
                     </form>
                     <div id="botones-Menu">

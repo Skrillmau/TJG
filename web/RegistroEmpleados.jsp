@@ -68,9 +68,9 @@
                     <h1 style="color: whitesmoke;">
                         Registro Empleado:
                     </h1>
-                    <div class="formulario">
-                        <h1>Crear Usuario Empleado</h1>
-                        <form action = "Registroe" method="post" class="form">
+                    <div id="formUsuario">
+                        <h3>Ingrese sus datos</h3>
+                        <form action = "Registroe" method="post">
                             <input type="text" class="campos" name="user" placeholder="Usuario"/>
                             <input type="password" class="campos" name="pass" placeholder="Contraseña"/>
                             <input type="text" class="campos" name="cedula" placeholder="Cedula"/>
