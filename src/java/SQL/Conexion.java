@@ -17,7 +17,7 @@ public class Conexion {
         String url = "jdbc:mysql://localhost:3306/thejourneygroup?serverTimezone=UTC";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection(url, "root", "julian1219");
+            con = DriverManager.getConnection(url, "root", "Yosoyjcpa16.");
             System.out.println("Conexión establecida como root");
 
         } catch (ClassNotFoundException | SQLException e) {
