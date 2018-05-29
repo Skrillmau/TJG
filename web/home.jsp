@@ -40,5 +40,10 @@
             <input type="submit" class="btn btn-danger" id="boton1" value="Crear Departamento" class="btn"/>
 
         </form>
+        </form>
+        <form action="CrearCargo" method="post">
+            <input type="submit" class="btn btn-danger" id="boton1" value="Crear Cargo" class="btn"/>
+
+        </form>
     </body>
 </html>

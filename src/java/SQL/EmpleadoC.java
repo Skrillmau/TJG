@@ -59,8 +59,10 @@ public class EmpleadoC {
             String consulta = "insert into empleado (Cedula_Empleado,Nombres,Fecha_Ingreso,Duracion_Contrato,EPS,ARL,RH,Caja_Compensacion,Fondo_Pension,ID_Departamento) values"
                     + "(?,?,(SELECT CURDATE()),?,?,?,?,?,?,?)";
             String consulta2 = "insert into usuario_empleado(Cedula_Empleado,Usuario,Password,Tipo) values (?,?,?,?)";
+            String querys = "Insert into cargo_empleado (ID_Cargo,Cedula_Empleado) values (?,?)";
             PreparedStatement pst = con.prepareStatement(consulta);
             PreparedStatement pstv = con.prepareStatement(consulta2);
+            PreparedStatement pque= con.prepareStatement(querys);
             pst.setString(1, empleado.getCedula() + "");
             pst.setString(2, empleado.getNombres());
             pst.setString(3, empleado.getDuracion() + "");
@@ -74,8 +76,11 @@ public class EmpleadoC {
             pstv.setString(2, empleado.getUsuario());
             pstv.setString(3, empleado.getPassword());
             pstv.setString(4, empleado.getTipo());
+            pque.setString(1, empleado.getIdcargo()+"");
+            pque.setString(2, empleado.getCedula()+"");
             pst.executeUpdate();
             pstv.executeUpdate();
+            pque.executeUpdate();
             creado = true;
 
         } catch (SQLException e) {

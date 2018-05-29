@@ -48,7 +48,29 @@ public class TiposC {
         return lista;
 
     }
+        public ArrayList<Tipos> traerCargos() {
 
+        ArrayList<Tipos> lista = new ArrayList<>();
+        try {
+            String consulta = "SELECT ID_Cargo,Nombre_Cargo FROM cargo";
+            PreparedStatement pst = con.prepareStatement(consulta);
+            ResultSet rs = pst.executeQuery();
+            Tipos tipos = null;
+
+            while (rs.next()) {
+                tipos = new Tipos();
+                tipos.setIdtipo(rs.getInt("ID_Cargo"));
+                tipos.setNombre(rs.getString("Nombre_Cargo"));
+                lista.add(tipos);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+        return lista;
+
+    }
+    
     public ArrayList<Tipos> traerDepartamentos() {
 
         ArrayList<Tipos> lista = new ArrayList<>();

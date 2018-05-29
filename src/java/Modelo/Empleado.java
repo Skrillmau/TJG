@@ -18,6 +18,7 @@ public class Empleado {
     private String Fp;
     private int duracion;
     private int Idepartamento;
+    private int Idcargo;
     
     public Empleado(){
         
@@ -117,6 +118,14 @@ public class Empleado {
 
     public void setDuracion(int duracion) {
         this.duracion = duracion;
+    }
+
+    public int getIdcargo() {
+        return Idcargo;
+    }
+
+    public void setIdcargo(int Idcargo) {
+        this.Idcargo = Idcargo;
     }
     
 }

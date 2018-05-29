@@ -5,7 +5,7 @@
  */
 package SQL;
 
-import Modelo.Departamento;
+import Modelo.Cargo;
 import Modelo.Producto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,21 +15,24 @@ import java.sql.SQLException;
  *
  * @author mate_
  */
-public class DepartamentoC {
+public class CargoC {
 
     private Connection con;
 
-    public DepartamentoC(Connection con) {
+    public CargoC(Connection con) {
         this.con = con;
     }
 
-    public boolean insert(Departamento dep) {
+    public boolean insert(Cargo cargo) {
         boolean creado = false;
         try {
-            String consulta = "insert into departamento (Nombre,Descripcion) values (?,?)";
+            String consulta = "insert into cargo (ID_Cargo,ObjetivoVentas,Comisiones,Memorandos,Nombre_Cargo) values (?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(consulta);
-            pst.setString(1, dep.getNombre());
-            pst.setString(2, dep.getDescribe());
+            pst.setString(1, cargo.getIdcargo()+ "");
+            pst.setString(2, cargo.getObjetivoventas()+"");
+            pst.setString(3, cargo.getComisiones() + "");
+            pst.setString(4, cargo.getMemorandos() + "");
+            pst.setString(5, cargo.getNombrecargo());
             pst.executeUpdate();
             creado = true;
         } catch (SQLException e) {

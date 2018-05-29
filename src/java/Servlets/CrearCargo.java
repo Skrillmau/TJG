@@ -5,13 +5,8 @@
  */
 package Servlets;
 
-import Modelo.Tipos;
-import SQL.Conexion;
-import SQL.TiposC;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author juanc
+ * @author mate_
  */
-public class CrearEmpleado extends HttpServlet {
+public class CrearCargo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,15 +32,9 @@ public class CrearEmpleado extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         RequestDispatcher rd;
-        Conexion con = new Conexion();
-        Connection cn = con.conectar();
-        TiposC tiposc = new TiposC(cn);
-        ArrayList<Tipos> listaD = tiposc.traerDepartamentos();
-        request.setAttribute("departamentos", listaD);
-        ArrayList<Tipos> listaC = tiposc.traerCargos();
-        request.setAttribute("cargos", listaC);
-        rd = request.getRequestDispatcher("/RegistroEmpleados.jsp");
+        rd = request.getRequestDispatcher("/CrearCargo.jsp");
         rd.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

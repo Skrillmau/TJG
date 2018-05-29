@@ -27,11 +27,22 @@
                 <input type="text" class="campos" name="caja" placeholder="Caja"/>
                 <input type="text" class="campos" name="fondo" placeholder="Fondo de pension"/>
 
-                <c:forEach items="${departamentos}" var="departamento" varStatus="status">
-                    <select name="iddeppartamentos">
+                <select name="iddeppartamentos">
+                    <c:forEach items="${departamentos}" var="departamento" varStatus="status">
                         <option value="${departamento.idtipo}"> ${departamento.nombre}</option>
-                    </select>
-                </c:forEach>
+                    </c:forEach>
+                </select>
+                
+                <select name="idcargo">
+                    <c:forEach items="${cargos}" var="cargo" varStatus="status">
+                        <option value="${cargo.idtipo}"> ${cargo.nombre}</option>
+                    </c:forEach>
+                </select>
+                
+                <select name="tipoempleado">
+                    <option value="Admin">Administrador</option>
+                    <option value="Empleado">Empleado</option>
+                </select>
 
                 <div class="btn-group" role="group" aria-label="...">
                     <input type="submit" class="btn btn-danger" id="boton1" value="Log in" class="btn"/>

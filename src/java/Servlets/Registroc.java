@@ -5,10 +5,12 @@
  */
 package Servlets;
 
+import Modelo.Cargo;
 import Modelo.Cliente;
 import Modelo.Departamento;
 import Modelo.Empleado;
 import Modelo.Producto;
+import SQL.CargoC;
 import SQL.ClienteC;
 import SQL.Conexion;
 import SQL.DepartamentoC;
@@ -78,7 +80,6 @@ public class Registroc extends HttpServlet {
             cliente.setUsuario(user);
             clientec.insert(cliente);
         } else if (URL.equals("/Registroe")) {
-            System.out.println("Choka pPerra");
             String user = request.getParameter("user");
             String pass = request.getParameter("pass");
             String nombres = request.getParameter("nombres");
@@ -89,8 +90,10 @@ public class Registroc extends HttpServlet {
             String rh = request.getParameter("rh");
             String caja = request.getParameter("caja");
             String fondo = request.getParameter("fondo");
-            String iddep = request.getParameter("iddepartamento");
+            String iddep = request.getParameter("iddeppartamentos");
             String tipo = request.getParameter("tipoempleado");
+            String idcargo = request.getParameter("idcargo");
+
             Conexion con = new Conexion();
             Connection cn = con.conectar();
             EmpleadoC empleadoc = new EmpleadoC(cn);
@@ -107,6 +110,7 @@ public class Registroc extends HttpServlet {
             empleado.setUsuario(user);
             empleado.setPassword(pass);
             empleado.setTipo(tipo);
+            empleado.setIdcargo(Integer.parseInt(idcargo));
             empleadoc.insert(empleado);
         } else if (URL.equals("/Registrodep")) {
 
@@ -119,6 +123,25 @@ public class Registroc extends HttpServlet {
             departamento.setNombre(nombre);
             departamento.setDescribe(descripcion);
             departamentoc.insert(departamento);
+            RequestDispatcher rd;
+            rd = request.getRequestDispatcher("/home.jsp");
+            rd.forward(request, response);
+        } else if (URL.equals("/Registrocar")) {
+            String idcargo = request.getParameter("idcargo");
+            String objetivo = request.getParameter("objetivo");
+            String comisiones = request.getParameter("comisiones");
+            String memorandos = request.getParameter("memorandos");
+            String nombre = request.getParameter("nombre");
+            Conexion con = new Conexion();
+            Connection cn = con.conectar();
+            CargoC cargoc = new CargoC(cn);
+            Cargo cargo = new Cargo();
+            cargo.setComisiones(Double.parseDouble(comisiones));
+            cargo.setIdcargo(Integer.parseInt(idcargo));
+            cargo.setObjetivoventas(Integer.parseInt(objetivo));
+            cargo.setMemorandos(Integer.parseInt(memorandos));
+            cargo.setNombrecargo(nombre);
+            cargoc.insert(cargo);
             RequestDispatcher rd;
             rd = request.getRequestDispatcher("/home.jsp");
             rd.forward(request, response);
@@ -170,7 +193,7 @@ public class Registroc extends HttpServlet {
             try (InputStream input = filePart.getInputStream()) {
                 Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
             }
-            
+
             String[] Parts = (file.getPath().split("XX"));
             String ruta = ("cod1203XX" + Parts[1] + "XX" + fileName);
             Conexion con = new Conexion();
