@@ -78,18 +78,19 @@
                             <b>
                                 <br>Porfavor Ingrese los Datos del Producto</b>
                         </h3>
-                        <input type="text" name="idproducto" placeholder="ID producto"/>
-                        <input type="text" name="nombre" placeholder="Nombre del producto"/>
-                        <input type="number" name="inventario" placeholder="Inventario"/>
-                        <input type="number" name="precio"placeholder="Precio" />
+                        <input type="number" name="idproducto" placeholder="ID producto" required="required" maxlength="4" />
+                        <input type="text" name="nombre" placeholder="Nombre del producto" required="required" maxlength="20" />
+                        <input type="number" name="inventario" placeholder="Inventario" required="required" maxlength="5" />
+                        <input type="number" name="precio"placeholder="Precio" required="required" />
+                        <select name="idproveedor">
 
-                        <c:forEach items="${proveedores}" var="proveedor" varStatus="status">
-                            <select name="idproveedor">
+                            <c:forEach items="${proveedores}" var="proveedor" varStatus="status">
                                 <option value="${proveedor.idtipo}"> ${proveedor.nombre}</option>
 
 
-                            </select>
-                        </c:forEach>
+                            </c:forEach>
+                        </select>
+
                         <input type="file" name="imagenp">
 
                         <input type="submit" class="btn btn-success" value="Crear Producto" />

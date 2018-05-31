@@ -57,21 +57,58 @@ public class Compra extends HttpServlet {
         Cliente c = new Cliente();
         int cantidad = 0;
         for (int i = 0; i < comprados.size(); i++) {
+            
 
             cantidad = Integer.parseInt(request.getParameter("cantidad" + comprados.get(i).getIdproducto()));
+            
             //  System.out.print(cantidad);
             f.setIdmentrega(codigotippenv);
             f.setIdformapago(codigotipopago);
 
-            f.setPrecio((int)comprados.get(i).getPrecio()* cantidad);
+            f.setPrecio((int) comprados.get(i).getPrecio() * cantidad);
             fd.setIdproducto(comprados.get(i).getIdproducto());
             fd.setCantidad(cantidad);
-            pd.realizarVenta(f,fd);
-
+            boolean ya = pd.realizarVenta(f, fd);
+            if (ya == true) {
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Usuario Creado correctamente</title>");
+                    out.println(" <link rel=\"stylesheet\" href=\"Css/background.css\">");
+                    out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+                    out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+                    out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div id='formUsuario'>");
+                    out.println("<h2>Compra registrada exitosamente</h2>");
+                    out.println("<a href='homecliente.jsp'><input type='submit' class='btn btn-success' value='Volver'></a>");
+                    out.println("</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            } else {
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Usuario Creado correctamente</title>");
+                    out.println(" <link rel=\"stylesheet\" href=\"Css/background.css\">");
+                    out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+                    out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+                    out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div id='formUsuario'>");
+                    out.println("<h2>Error</h2>");
+                    out.println("<a href='index.jsp'><input type='submit' class='btn btn-success' value='Volver'></a>");
+                    out.println("</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            }
         }
-        RequestDispatcher rd;
-        rd = request.getRequestDispatcher("/CompraRealizada.jsp");
-        rd.forward(request, response);
 
     }
 

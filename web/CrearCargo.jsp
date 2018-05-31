@@ -73,11 +73,11 @@
                         <h3>
                             <b>Porfavor Ingrese los Datos</b>
                         </h3>
-                        <input type="text" name="idcargo" placeholder="ID del cargo"/>
-                        <input type="text" name="objetivo" placeholder="Objetivo ventas"/>    
-                        <input type="text" name="comisiones" placeholder="Comisiones"/>               
-                        <input type="text" name="memorandos" placeholder="Memorandos"/>               
-                        <input type="text" name="nombre" placeholder="Nombre del cargo"/>               
+                        <input type="number" name="idcargo" placeholder="ID del cargo" required="required" maxlength="4" />
+                        <input type="number" name="objetivo" placeholder="Objetivo ventas" required="required" maxlength="10" />    
+                        <input type="number" name="comisiones" placeholder="Comisiones" required="required" maxlength="5" />               
+                        <input type="number" name="memorandos" placeholder="Memorandos" required="required" maxlength="1" />               
+                        <input type="text" name="nombre" placeholder="Nombre del cargo" required="required" maxlength="20" />               
 
                         <input type="submit" class="btn btn-success" value="Crear Cargo" />
 

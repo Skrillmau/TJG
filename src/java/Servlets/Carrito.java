@@ -64,7 +64,7 @@ public class Carrito extends HttpServlet {
         session = request.getSession(false);
         Lista = (ArrayList<Producto>) session.getAttribute("carritocompras");
         for (int a = 0; a < Lista.size(); a++) {
-            if (Lista.get(a).getIdproducto() == Integer.parseInt(request.getParameter("productoid"))) {
+            if (Lista.get(a).getInventario() <= Integer.parseInt(request.getParameter("cantidad"))) {
                 Lista.remove(a);
             }
         }

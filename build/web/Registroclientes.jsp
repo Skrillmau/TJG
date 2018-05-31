@@ -1,6 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -54,15 +53,15 @@
                             Porfavor Ingrese sus Datos
                     </h3>
                     <form action = "Registroc" method="post" class="form" id="formUsuario2">
-                        <p><input type="text" name="user" placeholder="Usuario"/></p>
-                        <p><input type="password" name="pass" placeholder="Contraseña"/></p>
-                        <p><input type="text" name="cedula" placeholder="Cedula"/></p>
-                        <p><input type="text" name="nombres" placeholder="Nombres"/></p>
-                        <p><input type="text" name="correo" placeholder="Correo"/></p>
-                        <p><input type="text" name="telefono" placeholder="Telefono"/></p>
-                        <p><input type="text" name="direccion" placeholder="Direccion"/></p>
-                        <p><input type="text" name="ciudad" placeholder="Ciudad"/></p>
-                        <p><input type="text" name="mediocontatco" placeholder="Medio de Contacto"/></p>
+                        <p><input type="text" id="us" name="user" placeholder="Usuario" required="required" maxlength="20" /></p>
+                        <p><input type="password" name="pass" placeholder="Contraseña" required="required" maxlength="20" /></p>
+                        <p><input type="number" name="cedula" placeholder="Cedula" required="required"  maxlength="10"/></p>
+                        <p><input type="text" name="nombres" placeholder="Nombres" required="required" maxlength="30" /></p>
+                        <p><input type="text" name="correo" placeholder="Correo" required="required" /></p>
+                        <p><input type="number" name="telefono" placeholder="Telefono" required="required" maxlength="11" /></p>
+                        <p><input type="text" name="direccion" placeholder="Direccion" required="required" maxlength="50" /></p>
+                        <p><input type="text" name="ciudad" placeholder="Ciudad" required="required" maxlength="20" /></p>
+                        <p><input type="text" name="mediocontatco" placeholder="Medio de Contacto" required="required" maxlength="20" /></p>
                         <p><input type="submit" class="btn btn-success" value="Registrar" />
 
                     </form>
@@ -70,6 +69,11 @@
                 <div id="botones-Menu">
                     <a href="index.jsp">
                         <br><input type="submit" class="btn-Menu" value="Home">
+                        <script>
+                            function myFunction() {
+                                console.log(document.getElementById("us").value);
+                            }
+                        </script>
                     </a>
                 </div>
             </div>

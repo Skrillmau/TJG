@@ -74,13 +74,13 @@
                         <b>Porfavor Ingrese los Datos</b>
                     </h3>
                     <form action = "Registropro" method="post">
-                        <input type="text" name="idproveedor" placeholder="Id del proveedor"/>
-                        <input type="text" name="razon" placeholder="Razon social"/>
-                        <input type="text" name="direccion" placeholder="Direccion"/>
-                        <input type="text" name="correo" placeholder="Correo"/>
-                        <input type="text" name="telefono" placeholder="Telefono"/>
-                        <input type="text" name="certi" placeholder="Certificacion Bancaria"/>
-                        <input type="text" name="rut" placeholder="RUT"/>
+                        <input type="number" name="idproveedor" placeholder="Id del proveedor" required="required" maxlength="4" />
+                        <input type="text" name="razon" placeholder="Razon social" required="required" maxlength="20" />
+                        <input type="text" name="direccion" placeholder="Direccion" required="required" maxlength="20" />
+                        <input type="text" name="correo" placeholder="Correo" required="required" maxlength="20" />
+                        <input type="number" name="telefono" placeholder="Telefono" required="required" maxlength="11" />
+                        <input type="number" name="certi" placeholder="Certificacion Bancaria" required="required" maxlength="20" />
+                        <input type="number" name="rut" placeholder="RUT" required="required" maxlength="10" />
                         <br></br><input type="submit" class="btn btn-success" value="Registrar proveedor" />
                     </form>
                     </div>

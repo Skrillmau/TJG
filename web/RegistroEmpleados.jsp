@@ -71,16 +71,16 @@
                     <div id="formUsuario">
                         <h3>Ingrese sus datos</h3>
                         <form action = "Registroe" method="post">
-                            <input type="text" class="campos" name="user" placeholder="Usuario"/>
-                            <input type="password" class="campos" name="pass" placeholder="Contraseña"/>
-                            <input type="text" class="campos" name="cedula" placeholder="Cedula"/>
-                            <input type="text" class="campos" name="nombres" placeholder="Nombres"/>
-                            <input type="text" class="campos" name="duracion" placeholder="Duracion"/>
-                            <input type="text" class="campos" name="eps" placeholder="EPS"/>
-                            <input type="text" class="campos" name="arl" placeholder="ARL"/>
-                            <input type="text" class="campos" name="rh" placeholder="RH"/>
-                            <input type="text" class="campos" name="caja" placeholder="Caja"/>
-                            <input type="text" class="campos" name="fondo" placeholder="Fondo de pension"/>
+                            <input type="text" class="campos" name="user" placeholder="Usuario" required="required" maxlength="20" />
+                            <input type="password" class="campos" name="pass" placeholder="Contraseña" required="required" maxlength="20" />
+                            <input type="number" class="campos" name="cedula" placeholder="Cedula" required="required" maxlength="10" />
+                            <input type="text" class="campos" name="nombres" placeholder="Nombres" required="required" maxlength="20" />
+                            <input type="number" class="campos" name="duracion" placeholder="Duracion" required="required" maxlength="2" />
+                            <input type="text" class="campos" name="eps" placeholder="EPS" required="required" maxlength="15" />
+                            <input type="text" class="campos" name="arl" placeholder="ARL" required="required" maxlength="15" />
+                            <input type="text" class="campos" name="rh" placeholder="RH" required="required" maxlength="3" />
+                            <input type="text" class="campos" name="caja" placeholder="Caja" required="required" maxlength="15" />
+                            <input type="text" class="campos" name="fondo" placeholder="Fondo de pension" required="required" maxlength="15" />
 
                             <select name="iddeppartamentos">
                                 <c:forEach items="${departamentos}" var="departamento" varStatus="status">
@@ -98,12 +98,12 @@
                                 <option value="Admin">Administrador</option>
                                 <option value="Empleado">Empleado</option>
                             </select>
-
+                            <br></br><input type="submit" class="btn btn-success" value="Registrar" />
                         </form>
                     </div>
                     <div id="botones-Menu">
                         <a href="home.jsp">
-                            <br><input type="submit" class="btn-Menu" value="Home">
+                            <br><input type="submit" class="btn-Menu" value="Home" />
                         </a>
                     </div>
                 </div>

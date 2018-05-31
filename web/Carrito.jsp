@@ -61,7 +61,7 @@
                                 <td><%=Lista.get(i).getIdproducto()%></td>
                                 <td><%=Lista.get(i).getNombreproducto()%> </td>
                                 <td><%=Lista.get(i).getPrecio()%></td>
-                                <td><input type="text" class="campos" name="cantidad<%=Lista.get(i).getIdproducto()%>" placeholder="insertecantidad<%=i%>"/></td>
+                                <td><input type="number" class="campos" name="cantidad<%=Lista.get(i).getIdproducto()%>" placeholder="insertecantidad<%=i%>" required="required"  /></td>
                                 <td><a href="eliminarproducto?productoid=<%=Lista.get(i).getIdproducto()%>"> ELIMINAR </a></td>
                             </tr>
 
