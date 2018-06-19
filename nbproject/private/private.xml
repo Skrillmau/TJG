@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/juanc/Documents/NetBeansProjects/TheJourneyGroup/src/java/Modelo/Empleado.java</file>
-            <file>file:/C:/Users/juanc/Documents/NetBeansProjects/TheJourneyGroup/src/java/Modelo/Cliente.java</file>
+            <file>file:/C:/Users/juanc/Documents/NetBeansProjects/TheJourneyGroup/src/java/Modelo/Producto.java</file>
+            <file>file:/C:/Users/juanc/Documents/NetBeansProjects/TheJourneyGroup/web/CrearProveedor.jsp</file>
+            <file>file:/C:/Users/juanc/Documents/NetBeansProjects/TheJourneyGroup/web/CrearProducto.jsp</file>
+            <file>file:/C:/Users/juanc/Documents/NetBeansProjects/TheJourneyGroup/src/java/SQL/Conexion.java</file>
+            <file>file:/C:/Users/juanc/Documents/NetBeansProjects/TheJourneyGroup/web/Carrito.jsp</file>
+            <file>file:/C:/Users/juanc/Documents/NetBeansProjects/TheJourneyGroup/src/java/Servlets/Carrito.java</file>
+            <file>file:/C:/Users/juanc/Documents/NetBeansProjects/TheJourneyGroup/src/java/Servlets/Compra.java</file>
         </group>
     </open-files>
 </project-private>

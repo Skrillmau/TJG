@@ -10,12 +10,14 @@ import Modelo.Cliente;
 import Modelo.Departamento;
 import Modelo.Empleado;
 import Modelo.Producto;
+import Modelo.Proveedor;
 import SQL.CargoC;
 import SQL.ClienteC;
 import SQL.Conexion;
 import SQL.DepartamentoC;
 import SQL.EmpleadoC;
 import SQL.ProductoC;
+import SQL.ProveedorC;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -78,7 +80,47 @@ public class Registroc extends HttpServlet {
             cliente.setPassword(pass);
             cliente.setTelefono(Integer.parseInt(telefono));
             cliente.setUsuario(user);
-            clientec.insert(cliente);
+            boolean ya = clientec.insert(cliente);
+            if (ya == true) {
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Usuario Creado correctamente</title>");
+                    out.println(" <link rel=\"stylesheet\" href=\"Css/background.css\">");
+                    out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+                    out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+                    out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div id='formUsuario'>");
+                    out.println("<h2>Usuario Creado Correctamente</h2>");
+                    out.println("<a href='index.jsp'><input type='submit' class='btn btn-success' value='Volver'></a>");
+                    out.println("</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            } else {
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Usuario Creado correctamente</title>");
+                    out.println(" <link rel=\"stylesheet\" href=\"Css/background.css\">");
+                    out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+                    out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+                    out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div id='formUsuario'>");
+                    out.println("<h2>Error</h2>");
+                    out.println("<a href='index.jsp'><input type='submit' class='btn btn-success' value='Volver'></a>");
+                    out.println("</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            }
+
         } else if (URL.equals("/Registroe")) {
             String user = request.getParameter("user");
             String pass = request.getParameter("pass");
@@ -111,7 +153,46 @@ public class Registroc extends HttpServlet {
             empleado.setPassword(pass);
             empleado.setTipo(tipo);
             empleado.setIdcargo(Integer.parseInt(idcargo));
-            empleadoc.insert(empleado);
+            boolean ya = empleadoc.insert(empleado);
+            if (ya == true) {
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Usuario Creado correctamente</title>");
+                    out.println(" <link rel=\"stylesheet\" href=\"Css/background.css\">");
+                    out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+                    out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+                    out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div id='formUsuario'>");
+                    out.println("<h2>Usuario Creado Correctamente</h2>");
+                    out.println("<a href='index.jsp'><input type='submit' class='btn btn-success' value='Volver'></a>");
+                    out.println("</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            } else {
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Usuario Creado correctamente</title>");
+                    out.println(" <link rel=\"stylesheet\" href=\"Css/background.css\">");
+                    out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+                    out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+                    out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div id='formUsuario'>");
+                    out.println("<h2>Error</h2>");
+                    out.println("<a href='index.jsp'><input type='submit' class='btn btn-success' value='Volver'></a>");
+                    out.println("</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            }
         } else if (URL.equals("/Registrodep")) {
 
             String nombre = request.getParameter("nombre");
@@ -122,10 +203,46 @@ public class Registroc extends HttpServlet {
             Departamento departamento = new Departamento();
             departamento.setNombre(nombre);
             departamento.setDescribe(descripcion);
-            departamentoc.insert(departamento);
-            RequestDispatcher rd;
-            rd = request.getRequestDispatcher("/home.jsp");
-            rd.forward(request, response);
+            boolean ya = departamentoc.insert(departamento);
+            if (ya == true) {
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Usuario Creado correctamente</title>");
+                    out.println(" <link rel=\"stylesheet\" href=\"Css/background.css\">");
+                    out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+                    out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+                    out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div id='formUsuario'>");
+                    out.println("<h2>Departamento Creado Correctamente</h2>");
+                    out.println("<a href='home.jsp'><input type='submit' class='btn btn-success' value='Volver'></a>");
+                    out.println("</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            } else {
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Usuario Creado correctamente</title>");
+                    out.println(" <link rel=\"stylesheet\" href=\"Css/background.css\">");
+                    out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+                    out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+                    out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div id='formUsuario'>");
+                    out.println("<h2>Error</h2>");
+                    out.println("<a href='index.jsp'><input type='submit' class='btn btn-success' value='Volver'></a>");
+                    out.println("</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            }
         } else if (URL.equals("/Registrocar")) {
             String idcargo = request.getParameter("idcargo");
             String objetivo = request.getParameter("objetivo");
@@ -141,10 +258,106 @@ public class Registroc extends HttpServlet {
             cargo.setObjetivoventas(Integer.parseInt(objetivo));
             cargo.setMemorandos(Integer.parseInt(memorandos));
             cargo.setNombrecargo(nombre);
-            cargoc.insert(cargo);
-            RequestDispatcher rd;
-            rd = request.getRequestDispatcher("/home.jsp");
-            rd.forward(request, response);
+            boolean ya = cargoc.insert(cargo);
+            if (ya == true) {
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Usuario Creado correctamente</title>");
+                    out.println(" <link rel=\"stylesheet\" href=\"Css/background.css\">");
+                    out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+                    out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+                    out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div id='formUsuario'>");
+                    out.println("<h2>Cargo Creado Correctamente</h2>");
+                    out.println("<a href='home.jsp'><input type='submit' class='btn btn-success' value='Volver'></a>");
+                    out.println("</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            } else {
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Usuario Creado correctamente</title>");
+                    out.println(" <link rel=\"stylesheet\" href=\"Css/background.css\">");
+                    out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+                    out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+                    out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div id='formUsuario'>");
+                    out.println("<h2>Error</h2>");
+                    out.println("<a href='index.jsp'><input type='submit' class='btn btn-success' value='Volver'></a>");
+                    out.println("</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            }
+        } else if (URL.equals("/Registropro")) {
+            String idproveedor = request.getParameter("idproveedor");
+            String razon = request.getParameter("razon");
+            String direccion = request.getParameter("direccion");
+            String correo = request.getParameter("correo");
+            String telefono = request.getParameter("telefono");
+            String certificacion = request.getParameter("certi");
+            String rut = request.getParameter("rut");
+
+            Conexion con = new Conexion();
+            Connection cn = con.conectar();
+            ProveedorC proveedorc = new ProveedorC(cn);
+            Proveedor proveedor = new Proveedor();
+            proveedor.setIdproveedor(Integer.parseInt(idproveedor));
+            proveedor.setRazonsocial(razon);
+            proveedor.setDireccion(direccion);
+            proveedor.setTelefono(Integer.parseInt(telefono));
+            proveedor.setCorreo(correo);
+            proveedor.setCerban(Integer.parseInt(certificacion));
+            proveedor.setRut(Integer.parseInt(rut));
+            boolean ya = proveedorc.insert(proveedor);
+            if (ya == true) {
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Usuario Creado correctamente</title>");
+                    out.println(" <link rel=\"stylesheet\" href=\"Css/background.css\">");
+                    out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+                    out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+                    out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div id='formUsuario'>");
+                    out.println("<h2>Proveedor Creado Correctamente</h2>");
+                    out.println("<a href='home.jsp'><input type='submit' class='btn btn-success' value='Volver'></a>");
+                    out.println("</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            } else {
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Usuario Creado correctamente</title>");
+                    out.println(" <link rel=\"stylesheet\" href=\"Css/background.css\">");
+                    out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+                    out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+                    out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div id='formUsuario'>");
+                    out.println("<h2>Error</h2>");
+                    out.println("<a href='index.jsp'><input type='submit' class='btn btn-success' value='Volver'></a>");
+                    out.println("</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            }
         }
         RequestDispatcher rd;
     }
@@ -186,7 +399,7 @@ public class Registroc extends HttpServlet {
             String idproveedor = request.getParameter("idproveedor");
             Part filePart = request.getPart("imagenp");
             String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-            String path = "C:\\Users\\mate_\\Documents\\GitHub\\TheJourneyGroup\\web\\Productos";
+            String path = "C:\\Users\\juanc\\Documents\\NetBeansProjects\\TheJourneyGroup\\web\\Productos";
             File uploads = new File(path);
             uploads.mkdirs();
             File file = File.createTempFile("cod" + "1203" + "XX", "XX" + fileName, uploads);
@@ -206,8 +419,46 @@ public class Registroc extends HttpServlet {
             producto.setInventario(Integer.parseInt(inventario));
             producto.setPrecio(Integer.parseInt(precio));
             producto.setIdproveedor(Integer.parseInt(idproveedor));
-            productoc.insert(producto);
-
+            boolean ya = productoc.insert(producto);
+            if (ya == true) {
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Usuario Creado correctamente</title>");
+                    out.println(" <link rel=\"stylesheet\" href=\"Css/background.css\">");
+                    out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+                    out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+                    out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div id='formUsuario'>");
+                    out.println("<h2>Producto Creado Correctamente</h2>");
+                    out.println("<a href='index.jsp'><input type='submit' class='btn btn-success' value='Volver'></a>");
+                    out.println("</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            } else {
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Usuario Creado correctamente</title>");
+                    out.println(" <link rel=\"stylesheet\" href=\"Css/background.css\">");
+                    out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+                    out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+                    out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div id='formUsuario'>");
+                    out.println("<h2>Error</h2>");
+                    out.println("<a href='index.jsp'><input type='submit' class='btn btn-success' value='Volver'></a>");
+                    out.println("</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            }
         }
     }
 

@@ -64,6 +64,7 @@
         <url-pattern>/Registrop</url-pattern>
         <url-pattern>/Registrodep</url-pattern>
         <url-pattern>/Registrocar</url-pattern>
+        <url-pattern>/Registropro</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Catalogo</servlet-name>

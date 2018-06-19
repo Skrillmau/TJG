@@ -57,7 +57,7 @@ public class ClienteC {
             String consulta = "insert into cliente (Cedula,Nombres,Correo,Telefono,Direccion,Ciudad,Medio_Contacto) values "
                     + "(?,?,?,?,?,?,?)";
             String consulta2="insert into usuario_cliente (Cedula_Cliente,Usuario,Password) values "
-                    + "(?,?,?)";
+                    + "(?,?,md5(?))";
             PreparedStatement pst = con.prepareStatement(consulta);
             PreparedStatement pstv = con.prepareStatement(consulta2);
             pst.setString(1, cliente.getCedula()+"");

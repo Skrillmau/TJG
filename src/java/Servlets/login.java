@@ -57,8 +57,14 @@ public class login extends HttpServlet {
             RequestDispatcher rd;
             if (emple != null) {
                 session.setAttribute("empleado", emple);
-                rd = request.getRequestDispatcher("/home.jsp");
-                rd.forward(request, response);
+                if (emple.getTipo().equals("Admin")) {
+                    rd = request.getRequestDispatcher("/home.jsp");
+                    rd.forward(request, response);
+                }
+                if(emple.getTipo().equals("Empleado")){
+                    rd = request.getRequestDispatcher("/homeEmpleado.jsp");
+                    rd.forward(request, response);
+                }
             } else {
                 rd = request.getRequestDispatcher("/index.jsp");
                 rd.forward(request, response);
